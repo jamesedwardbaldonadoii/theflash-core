@@ -15,6 +15,9 @@ module.exports = () => {
 	.then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
+
+	// Models
+	
   mongoose.model("users", require('./schemas/UserSchema'));
   
   return db;

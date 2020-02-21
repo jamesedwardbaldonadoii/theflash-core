@@ -16,6 +16,14 @@ app.use(bodyParser.json());
 // Passport middleware
 app.use(passport.initialize());
 
+const logRequestStart = (req, res, next) => {
+	console.log(req.isAuthenticated());
+	console.info(`${req.method} ${req.originalUrl}`);
+	next()
+}
+
+app.use(logRequestStart);
+
 // Mongoose
 require("./models/index")();
 
